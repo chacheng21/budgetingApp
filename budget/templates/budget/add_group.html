@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style = "position:absolute; right:450px; top:300px;">
+    <h1> New Group:</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <!--
+        {% for field in form %}
+        <label class="my_class" for="{{ field.auto_id }}">{{ field.label }}:</label>
+        <br>
+        <input name="{{ field.auto_id }}" id="{{ field.auto_id }}" style = "width: 300px">
+        <br>
+        {% endfor %}
+        -->
+        <br>
+        <label for="category_input">Expense Categories:</label>
+        <br>
+        <input type="text" name="categories" id="categories" style = "width: 300px">
+        <br>
+        <small style="color: red"> Separate Categories by Commas, No Spaces </small>
+        <br>
+        <br>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</body>

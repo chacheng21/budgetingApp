@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style = "position:absolute; right:750px; top:300px;">
+    {% if groups.count == 0 %}
+        <h1> You have no groups! Create a group <a href = "/add"> here! </a></h1>
+    {% else %}
+        <h1> Your Groups: </h1>
+        <br>
+        <div class = "list-group" style = "width: 300px">
+            {% for group in groups %}
+                <a href = "/{{ group.slug }}" class="list-group-item list-group-item-action" > {{ group.group_name }} </a> 
+            {% endfor %}
+        </div>
+        <br>
+        <button onclick = "location.href = '/add'" class = "btn btn-primary"> Add New Group</button>
+    {% endif %}
+</body>

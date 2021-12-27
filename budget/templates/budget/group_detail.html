@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'budget/css/group_detail.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>{{ group.group_name }}</title>
+</head>
+<body>
+    <h1 style = "position: absolute; right:1320px; top:50px"> {{ group.group_name }}</h1>
+    <div id = "group_details">
+        <div id = "budget" style = "height: 100px; width: 400px; position:absolute; right:1050px; top:200px; 
+        border-radius: 25px;  border: 2px solid rgb(213, 211, 211); padding: 20px;">
+            <h2> Total Budget: ${{ group.budget }} </h2>
+        </div>
+        <div id="budget_remaining" style="height: 100px; width: 500px; position:absolute; right:350px; top:200px;
+        border-radius: 25px; border: 2px solid rgb(213, 211, 211); padding: 20px;">
+            {% if group.budget_remaining < 0 %}
+                <h2 style = "color: red"> Budget Remaining: ${{ group.budget_remaining }} </h2>
+            {% else %}
+                <h2 style = "color: rgb(13, 198, 13)"> Budget Remaining: ${{ group.budget_remaining }} </h2>
+            {% endif %}
+    </div>
+
+    <div id="add_expense" style = "height: 400px; width: 300px; position:absolute; right:1150px; top:400px;
+    border-radius: 25px; border: 2px solid rgb(213, 211, 211); padding: 20px;">
+        <h3> Add Expense</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="expense_name">Expense Name: </label>
+            <br>
+            <input name="expense_name" id="expense_name">
+            <br>
+            <label for="amount">Amount: </label>
+            <br>
+            <input name="amount" id="amount">
+            <br>
+            <small style = "color: red"> Amount less than 10000, only 2 DP</small>
+            <br>
+            <label for="category">Select a Category: </label>
+            <br>
+            <select name="category" class="form-select" aria-label="Default select example">
+                {% for category in category_list %}
+                <option> {{ category.category_name }} </option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <button type="submit" name = "expense" class="btn btn-primary">Add Expense</button>
+        </form>
+    </div>
+
+    <div id="add_categories" style="height: 250px; width: 300px; position:absolute; right:1150px; top:850px;
+        border-radius: 25px; border: 2px solid rgb(213, 211, 211); padding: 20px;">
+        <h3> New Categories</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="categories">New Categories: </label>
+            <br>
+            <input name="categories" id="categories">
+            <br>
+            <small style="color: red"> Separate categories by commas, no spaces</small>
+            <br>
+            <br>
+            <button type="submit" name="category" class="btn btn-primary">Add Categories</button>
+        </form>
+    </div>
+
+    <div id="show_transactions" style="height: 50px; width: 300px; position:absolute; right:550px; top:400px;">
+        <h1> Expenses: </h1>
+        <br>
+        {% for expense in expense_list %}
+            <div class = "expense" style="border-radius: 25px; border: 2px solid rgb(213, 211, 211); padding: 20px">
+                <h4> {{ expense.expense_name }} : ${{ expense.amount }} </h4>
+                <span class="btn btn-light"> {{ expense.category.category_name}} </span>
+                <br>
+                <small> {{ expense.created }}</small>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+            
+</body>
+
+
+
+
