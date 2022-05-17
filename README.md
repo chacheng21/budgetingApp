@@ -1,26 +1,29 @@
-__Installation Instruction__:
-1. Create a superuser for yourself.  This is needed for sending a warning email
-2. run 
+<!-- ABOUT THE PROJECT -->
+## Budgeting App
+
+### Built With
+
+* Django
+* SQLite
+* HTML/CSS
+* Bootstrap
+
+### Setup
+
+1. Create a superuser for yourself.  This is necessary for sending an automated warning email
+2. Start the server 
    ```.sh
    python manage.py runserver 
    ```
-__Code Structure__:
 
-Budget directory stores all relevant code:
-1. templates store HTML for the webpages 
-2. forms.py store the forms required for user to fill in
-3. models.py creates the models we need to store user's information
-4. urls.py creates the routes to view different budgeting group
-5. views.py renders the page and handles all requests
+<!-- USAGE EXAMPLES -->
+## Screenshots
+<img width="1690" alt="Screenshot 2022-05-17 at 1 41 05 PM" src="https://user-images.githubusercontent.com/70919900/168814168-e1a57ad9-3b14-47f0-83c9-af9881988ee2.png">
+<img width="1549" alt="Screenshot 2022-05-17 at 1 46 37 PM" src="https://user-images.githubusercontent.com/70919900/168814212-ba42fb95-e8c3-4512-82c1-20ae2a14a0a1.png">
+<img width="1165" alt="Screenshot 2022-05-17 at 1 41 43 PM" src="https://user-images.githubusercontent.com/70919900/168814232-55b201d2-10a3-4613-bfe5-d2b687521ae9.png">
+<img width="1401" alt="Screenshot 2022-05-17 at 1 43 30 PM" src="https://user-images.githubusercontent.com/70919900/168814256-2ebfac23-6cd4-417b-a4b3-3ca2cace887d.png">
+<img width="792" alt="Screenshot 2022-05-17 at 1 45 26 PM" src="https://user-images.githubusercontent.com/70919900/168814285-578bb223-ecab-4418-baf1-0ecf59ab2bdd.png">
 
-__Requirements__:
 
-First Party Packages: sqlite (Django Database), datetime (Email), math (Simple calculations) 
-
-Third Party Packages: Django, Django Mail
-
-Classes: 3 classes in Models.py, magic methods: __str__, __getattribute__
-
-__Video Demo__:
-
-https://youtu.be/525QegCyPvw
+## Video Demo Link
+[Video Link](https://youtu.be/525QegCyPvw)
