@@ -8,6 +8,10 @@
 * HTML/CSS
 * Bootstrap
 
+### Project Description
+
+This is a budgeting app designed for people who want to keep track of their spending and make sure they don't go over their specified budget. The app supports creating different budgeting groups and different budgeting categories within a group so that users can see which categories within a group has the most spending. If a users' remaining budget is below a threshold set by the user, an email will be sent to them warning they're close to going overbudget. If a user is already overbudget, a different email will be sent indicating they're already overbudget.
+
 ### Setup
 
 1. Create a superuser for yourself.  This is necessary for sending an automated warning email
